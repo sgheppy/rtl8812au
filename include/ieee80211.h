@@ -128,7 +128,7 @@ enum {
 
 #define WPA_SELECTOR_LEN 4
 extern u8 RTW_WPA_OUI_TYPE[] ;
-extern u16 RTW_WPA_VERSION ;
+fix u16 RTW_WPA_VERSION ;
 extern u8 WPA_AUTH_KEY_MGMT_NONE[];
 extern u8 WPA_AUTH_KEY_MGMT_UNSPEC_802_1X[];
 extern u8 WPA_AUTH_KEY_MGMT_PSK_OVER_802_1X[];
@@ -1286,12 +1286,12 @@ enum ieee80211_state {
 (((Addr[2]) & 0xff) == 0xff) && (((Addr[3]) & 0xff) == 0xff) && (((Addr[4]) & 0xff) == 0xff) && \
 (((Addr[5]) & 0xff) == 0xff))
 #else
-extern __inline int is_multicast_mac_addr(const u8 *addr)
+static __inline int is_multicast_mac_addr(const u8 *addr)
 {
         return ((addr[0] != 0xff) && (0x01 & addr[0]));
 }
 
-extern __inline int is_broadcast_mac_addr(const u8 *addr)
+static __inline int is_broadcast_mac_addr(const u8 *addr)
 {
 	return ((addr[0] == 0xff) && (addr[1] == 0xff) && (addr[2] == 0xff) &&   \
 		(addr[3] == 0xff) && (addr[4] == 0xff) && (addr[5] == 0xff));
